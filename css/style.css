@@ -115,7 +115,7 @@ ol{
 .each_image_element{
     position: relative;
 }
-.image-content,.simple_animation{
+.image-content{
     position: absolute;
     left: 10%;
     top: 30%;
@@ -123,15 +123,13 @@ ol{
     font-family: 'Merriweather', serif;
     font-style: italic;
     font-weight: 300;
-    transition: all 0.5s ease 0s;
-    transform: translate(0,0);
 }
 
-.work_lamp:hover .simple_animation{
+/* .work_lamp:hover .simple_animation{
     transform: translate(50px,0);
     left: 0;
     top: 0;
-}
+} */
 
 .image-content h4{
     font-family: 'Montserrat', sans-serif;
@@ -143,7 +141,59 @@ ol{
 .white-text{
     color:white;
 }
+.work_lamp:hover > .each_image_element > .image-content > .animation_header,.pendant_lamp:hover .animation_header,.col-50:hover .animation_header{
+    -webkit-animation: bounceInLeft 1s;
+    -moz-animation: bounceInLeft 1s;
+}
+/* .work_lamp:hover > .each_image_element > .image-content > .animation_header {
+    animation: 1s ease 0s 1 normal none running bounceInLeft;
+} */
 
+.work_lamp:hover > .each_image_element > .image-content > .simple_animation,.pendant_lamp:hover .simple_animation,.col-50:hover .simple_animation {
+    -webkit-animation: fadeInDown 1s;
+    -moz-animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+}
+}
+@keyframes bounceInLeft {
+0%, 60%, 75%, 90%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-80px, 0, 0);
+    transform: translate3d(-80px, 0, 0);
+}
+60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+}
+75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+}
+90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+}
+100% {
+    -webkit-transform: none;
+    transform: none;
+}
+}
 .gray_color{
     color: #666666;
 }
@@ -469,6 +519,7 @@ ol{
     padding-top: 60px;
     transition: all 0.3s ease 0s;
 }
+
 /* .figure_icon li:hover{
     animation: zoomIn 0.5s;
 }
@@ -741,7 +792,7 @@ ol{
     font-size: 24px;
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 11px;
 }
 .social_sites_content{
     font-family: 'Merriweather', serif;
