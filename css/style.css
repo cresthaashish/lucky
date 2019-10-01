@@ -54,7 +54,17 @@ ol{
     color: #eeeeee;
     padding: 50px 0;
 }
-
+.work_lamp{
+    margin: 0 auto;
+    min-width: 390px;
+    padding: 10px 0;
+}
+/* 
+.each_image_element > figure > img{
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+} */
 .top_secton{
     display: flex;
     justify-content: space-around;
@@ -105,7 +115,7 @@ ol{
 .each_image_element{
     position: relative;
 }
-.image-content{
+.image-content,.simple_animation{
     position: absolute;
     left: 10%;
     top: 30%;
@@ -113,6 +123,14 @@ ol{
     font-family: 'Merriweather', serif;
     font-style: italic;
     font-weight: 300;
+    transition: all 0.5s ease 0s;
+    transform: translate(0,0);
+}
+
+.work_lamp:hover .simple_animation{
+    transform: translate(50px,0);
+    left: 0;
+    top: 0;
 }
 
 .image-content h4{
@@ -152,15 +170,23 @@ ol{
     justify-content: space-between;
     flex-wrap: wrap;
 } */
-.col-15{
-    flex: 0 0 15%;
-    width: 15%;
+.vitra_sub_column{
+    padding: 0;
+}
+.work_lamp > .each_image_element > figure > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .col-70{
-    flex: 0 0 70%;
-    width: 70%;
+    /* flex: 0 0 70%;
+    width: 70%; */
 }
-
+.tab-content > div > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .vitra{
     background-color: #f2f2f2;
     padding: 60px 0;
@@ -174,7 +200,7 @@ ol{
     margin-right: 15px;
 }
 
-.col-15 > .nav > .sub_image:not(:last-child){
+.vitra_sub_column > .nav > .sub_image:not(:last-child){
     margin-bottom: 18.5px;
 }
 .nav-tabs {
@@ -186,6 +212,8 @@ ol{
     padding: 20px;
     align-items: center;
     position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .image_content::before{
@@ -240,7 +268,7 @@ ol{
     color: #bbbbbb;
 }
 .red_class{
-    color: #ec5858;
+    color: #ec5858 !important;
 }
 .order_date{
     font-family: 'Montserrat', sans-serif;
@@ -280,10 +308,12 @@ ol{
 .three_items > .row:first-child{
     margin: 30px 0;
 }
-.col-25,.cols-25{
-    flex: 0 0 25%;
-    width: 25%;
-    padding: 0 5px;
+.sales_item,.footer_element{
+    /* flex: 0 0 25%;
+    width: 25%; */
+    padding: 10px 5px;
+    min-width: 279px;
+    margin: 0 auto;
 }
 
 .each_item{
@@ -323,14 +353,10 @@ ol{
     height: 40px;
     text-align: center;
     line-height: 40px;
-    font-size: 0;
-    padding: 0;
     border-radius: 50%;
-    border: none;
     background-color: #aaaaaa;
     color: #fff;
     display: inline-block;
-    margin: 0;
     vertical-align: middle;
     transition: all 0.5s ease 0s;
     transform: scale(0.5);
@@ -339,7 +365,7 @@ ol{
     margin: 0 3px;
 }
 
-.each_item:hover > .group-button > .wishlist, .each_item:hover > .group-button > .add_to_cart_button,.each_item:hover > .group-button > .compare {
+.each_item:hover > .group-button > .wishlist, .each_item:hover > .group-button > .add_to_cart_button,.each_item:hover > .group-button > .compare,.each_item:hover .button.quick-view {
     visibility: visible;
     transform: scale(1);
     opacity: 1;
@@ -351,6 +377,58 @@ ol{
 .each_item a:hover{
     color: #eec15b;
 }
+.each_item > .group-button > .wishlist:hover, .each_item > .group-button > .add_to_cart_button:hover,.each_item > .group-button > .compare:hover,.each_item .button.quick-view:hover {
+    background-color: #eec15b;
+}
+.each_item .button.quick-view {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0 10px;
+    background-color: #aaaaaa;
+    color: #fefefe;
+    font-size: 10px;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    border-radius: 4px;
+    z-index: 2;
+    transition: all 0.5s ease 0s;
+    transform: translate(0,-20px);
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* .simple_animation{
+    transition: all 0.5s ease 0s;
+    transform: translate(0,-20px);
+} */
+
+.work_lamp:hover .simple_animation{
+    transform: translate(0,0);
+}
+
+.each_item .flash {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 2;
+}
+
+.each_item .flash>span {
+    padding: 0 10px;
+    font-size: 9px;
+    font-family: 'Montserrat', sans-serif;;
+    color: #fff;
+    background-color: #83ccd5;
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 3px;
+}
+
+.each_item .flash .sale {
+    background-color: #e9c77b;
+}
 .each_item h6{
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -361,8 +439,8 @@ ol{
 .features{
     text-align: center;
     background: url(../images/asset\ 50.jpeg) center/ cover no-repeat fixed;
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding-top: 90px;
+    padding-bottom: 50px;
     
 }
 
@@ -399,7 +477,7 @@ ol{
     50% {font-size: 50%}
     100%{font-size: 100%} 
   } */
-.figure_icon:hover{
+.feature_item:hover .figure_icon{
     background-color: #eec15b;
  
 }
@@ -432,7 +510,11 @@ ol{
 .pendant_lamp a{
     display: block;
 }
-
+.tags{
+    max-width: 390px;
+    padding: 30px 0;
+    margin: 0 auto;
+}
 /* This css only takes by mozilla browser */
 @-moz-document url-prefix() { 
     .col-35{
@@ -458,7 +540,7 @@ ol{
 
 .pendant_lamp_content{
     position: absolute;
-    left: 10px;
+    left: 55px;
     bottom: 80px;
 }
 
@@ -531,9 +613,17 @@ ol{
 
 .div_slider{
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.12);
-    min-width: 370px;
+    width: 370px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 20px;
+    
 }
-
+.div_slider > .each_blog > a > figure > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .likes_comments  {
     display: flex;
     justify-content: space-evenly;
@@ -575,9 +665,10 @@ ol{
     color: #aaaaaa;
 }
 
-.cols-50{
-    flex: 0 0 50%;
-    width: 50%;
+.socil_media{
+    padding: 0;
+    min-width: 550px;
+    margin: 0 auto;
 }
  .navbar-nav {
     flex: 1;
@@ -691,7 +782,9 @@ ol{
 .footersection > .costume_container > hr{
     border-color: #666666;
 }
-
+.about_us, .our_info, .my_account {
+    margin: 0 auto;
+}
 .about_us h6, .our_info h6, .my_account h6{
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -707,6 +800,7 @@ ol{
     color: #666666;
     line-height: 2.8;
     transition: all 0.3s ease 0s;
+    margin: 0 auto;
 }
 
 .about_us ul a:hover, .our_info ul a:hover, .my_account ul a:hover{
@@ -714,9 +808,11 @@ ol{
 }
 .payment_method,.payment{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 hr.style1 {
